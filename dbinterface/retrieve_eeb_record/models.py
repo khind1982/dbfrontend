@@ -27,4 +27,4 @@ class EebRecord(models.Model):
 
 
 class Settings(models.Model):
-    shelfmark = models.TextField()
+    eebrecord = models.TextField()

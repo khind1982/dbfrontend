@@ -8,7 +8,6 @@
 <table>
 <tr>
     <th>pqid</th>
-    <!-- <th>edit pqid</th> -->
     <th>displaydate</th>
     <th>edit displaydate</th>
     <th>shelfmark</th>
@@ -17,12 +16,6 @@
     {% for x in record %}
     <tr>
         <td>{{ x.pqid }}</td>
-        <!-- <td>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="text" id="pqid" name="{{x.pqid}}"/>
-        </form>
-        </td> -->
         <td>{{ x.displaydate }}</td>
         <td>
         <form method="post" enctype="multipart/form-data">
