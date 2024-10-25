@@ -5,9 +5,5 @@ from . import views
 # is the name of the view function in views.py
 
 urlpatterns = [
-    path(
-        "show_eeb_record_table/",
-        views.show_eeb_record_table,
-        name="show_eeb_record_table",
-    )
+    path("eeb_record_display", views.EEBRecordData.as_view(), name="home"),
 ]

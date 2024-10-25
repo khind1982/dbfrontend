@@ -24,3 +24,7 @@ class EebRecord(models.Model):
     class Meta:
         managed = False
         db_table = "eeb_record"
+
+
+class Settings(models.Model):
+    shelfmark = models.TextField()

@@ -5,11 +5,48 @@
 <h1>Table: eeb_record</h1>
 <p>Here is the eeb_record table.</p>
 
-<ul>
-    {% for x in mymembers %}
-        <li>{{ x. pqid }} {{ x.title }}</li>
+<table>
+<tr>
+    <th>pqid</th>
+    <!-- <th>edit pqid</th> -->
+    <th>displaydate</th>
+    <th>edit displaydate</th>
+    <th>shelfmark</th>
+    <th>edit shelfmark</th>
+</tr>
+    {% for x in record %}
+    <tr>
+        <td>{{ x.pqid }}</td>
+        <!-- <td>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" id="pqid" name="{{x.pqid}}"/>
+        </form>
+        </td> -->
+        <td>{{ x.displaydate }}</td>
+        <td>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="shelfmark">Edit displaydate</label>
+            {{forms.eeb_record_form.as_p}}
+            <input type="text" id="ddate" name="{{x.pqid}}|ddate"/>
+            <input type="submit" value="Submit"/>
+        </form>
+        </td>
+        <td>{{ x.shelfmark }}</td>
+        <td>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="shelfmark">Edit Shelfmark</label>
+            {{forms.eeb_record_form.as_p}}
+            <input type="text" id="shelf" name="{{x.pqid}}|shelf"/>
+            <input type="submit" value="Submit"/>
+        </form>
+        </td>
+    </tr>
     {% endfor %}
-</ul>
+
+</table>
 
 </body>
 </html>
