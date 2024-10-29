@@ -43,3 +43,11 @@ class EEBRecordData(MultiModelFormView):
 
         context["record"] = EebRecord.objects.all().values()
         return self.render_to_response(context)
+
+
+def fruits(request):
+    template = loader.get_template("template.html")
+    context = {
+        "fruits": ["Apple", "Banana", "Cherry"],
+    }
+    return HttpResponse(template.render(context, request))
