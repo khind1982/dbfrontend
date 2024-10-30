@@ -31,6 +31,7 @@ class EEBRecordData(MultiModelFormView):
 
     def post(self, request, **kwargs):
         context = {}
+        print(type(request), request.__dict__)
         user_response = [
             (identifier, value) for identifier, value in request.POST.items()
         ][1]
@@ -51,3 +52,12 @@ def fruits(request):
         "fruits": ["Apple", "Banana", "Cherry"],
     }
     return HttpResponse(template.render(context, request))
+
+
+def parse_response(response):
+    user_response = [
+        (identifier, value) for identifier, value in response.POST.items()
+    ][1]
+    pqid, columnidentifier = user_response[0].split("|")
+    value = user_response[-1]
+    return pqid, columnidentifier, value
